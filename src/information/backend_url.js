@@ -1,0 +1,1 @@
+export const server_url = "https://trenders-server.onrender.com";
