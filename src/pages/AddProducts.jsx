@@ -9,6 +9,7 @@ import axios from 'axios';
 import '../styles/addEditProducts.css'
 import {Alert} from 'react-bootstrap'
 import { categoryArray } from '../information/categoryArrays';
+import { server_url } from '../information/backend_url';
 
 import Loading from '../components/Loading'
 
@@ -59,7 +60,7 @@ const AddProducts = () => {
     const sendData = async ()=>{
         try{
             if(!inputs.name || !inputs.brand ||  !inputs.color || !inputs.stock || !inputs.price || !inputs.actualPrice || 
-                !inputs.description || !inputs.pincodes || !inputs.size || !inputs.gender || !inputs.occasion || !inputs.category){
+                !inputs.description || !inputs.size || !inputs.gender || !inputs.occasion || !inputs.category){
                     setImgTypeAlert('none');
                     setProductExistAlert('none');
                     setIncompleteAlert('block');
@@ -67,7 +68,7 @@ const AddProducts = () => {
             }else{
                 if(inputs.img.type == "image/jpeg" || inputs.img.type == "image/jpg" || inputs.img.type == "image/png" || inputs.img.type == "image/gif"){
                     setLoader(true);
-                    const url = '/api/addProduct';
+                    const url =`${server_url}/api/addProduct`;
                     let formdata = new FormData();
                     formdata.append('img',inputs.img,inputs.img.name);
                     formdata.append('name',inputs.name);
@@ -215,10 +216,6 @@ const AddProducts = () => {
             <div className="d-flex w-100 flex-column">
                 <div className="font1">Desscription of product</div>
                 <textarea name='description' placeholder='description and specs' onChange={handleChange} value={inputs.description}></textarea>
-            </div>
-            <div className="d-flex w-100 flex-column">
-                <div className="font1">Pincodes to which is deliverable</div>
-                <textarea name='pincodes' placeholder=" eg. 123401 482005 123421" onChange={handleChange} value={inputs.pincodes}></textarea>
             </div>
 
             <div className="d-flex w-100 flex-column mt-3">

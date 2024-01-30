@@ -76,7 +76,9 @@ const Signup = () => {
     const register = async ()=>{
         let res = await SignupRequest(inputs.email,inputs.password,inputs.sendedOtp,inputs.otp);
         if(res.status==201){
-            console.log('regesterd');
+            let token = await res.json();
+            token = token.token;
+            localStorage.setItem("trenders-user",token);
             navigate('/');
             window.location.reload();
         }else if(res.status==202){

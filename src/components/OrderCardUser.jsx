@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
+import { server_url } from '../information/backend_url'
+
 
 
 
@@ -12,7 +14,7 @@ const OrderCardUser = ({product}) => {
                 {product.cart.map((item,ind)=>(
                     <div key={ind} className="descUser">
                         <div className="smallBox">
-                            <img src={"/images/products/"+item.img} alt="no image" />
+                            <img src={server_url+"/products/"+item.img} alt="no image" />
                             <div className="qty">{item.qty}</div>
                         </div>
                         <Link to={'/product?name='+item.name+'&brand='+item.brand+'&color='+item.color+'&size='+item.size} className="d-flex bigBox">

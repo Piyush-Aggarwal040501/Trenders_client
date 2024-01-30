@@ -18,6 +18,7 @@ import { RateProduct } from '../apiCalls/RateProduct'
 import { GetReviews } from '../apiCalls/GetReviews'
 import { AddToCart } from '../apiCalls/AddToCart'
 import {userDetailsAction} from '../actions/userDetails'
+import { server_url } from '../information/backend_url'
 
 
 const ProductPage = ({}) => {
@@ -250,7 +251,7 @@ const ProductPage = ({}) => {
             <div className="d-flex justify-content-center mainContainer">
                 <div className="left">
                     <div className="d-flex w-100 justify-content-center">
-                        <img src={"/images/products/"+details.img} alt={details.name} />
+                        <img src={server_url+"/products/"+details.img} alt={details.name} />
                     </div>
                     {!isAdmin &&
                         <div className='buttons mt-10'>
@@ -303,7 +304,7 @@ const ProductPage = ({}) => {
                         <div className="d-flex py-2 flex-wrap">
                             {colorsArray.map((value,index)=>(
                                 <a key={index} href={'/product?name='+value.name+'&brand='+value.brand+'&color='+value.color+'&size='+value.size} className='mx-2 my-2 font1'>
-                                    {id==value.productId? <img src={"/images/products/"+value.img} alt={value.productId}  className='active' />
+                                    {id==value.productId? <img src={server_url+"/products/"+value.img} alt={value.productId}  className='active' />
                                     : <img src={value.img} alt={value.productId} />
                                     }
                                 </a>

@@ -12,6 +12,7 @@ import Empty from '../components/Empty';
 import AlertBox from '../components/AlertBox';
 
 import '../styles/allProducts.css'
+import { server_url } from '../information/backend_url';
 
 
 // impoerting api call to get all products 
@@ -150,7 +151,7 @@ const AllProducts = () => {
     }
     const deleteProductRequest = async ()=>{
         try{
-            const res = await fetch('/api/deleteProduct',{
+            const res = await fetch(`${server_url}/api/deleteProduct`,{
                 method:"POST",
                 headers:{
                     'Content-Type':'application/json',

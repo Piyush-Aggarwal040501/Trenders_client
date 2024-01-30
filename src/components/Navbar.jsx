@@ -37,6 +37,7 @@ const Navbar = () => {
     const [logoutBox, setLogoutBox] = useState('none')
     const logoutUser = ()=>{
         Logout();
+        window.location.reload();
     }
 
     // getting userdata 

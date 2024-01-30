@@ -48,7 +48,9 @@ const Login = () => {
         }else{
             let res = await LoginRequest(inputs.email,inputs.password);
             if(res.status==200){
-                console.log('regesterd');
+                let token = await res.json();
+                token = token.token;
+                localStorage.setItem("trenders-user",token);
                 navigate('/');
                 window.location.reload();
             }else if(res.status==404){

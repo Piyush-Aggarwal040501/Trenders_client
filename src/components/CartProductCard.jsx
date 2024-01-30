@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux'
 
 import { AddToCart } from '../apiCalls/AddToCart'
 import { userDetailsAction } from '../actions/userDetails'
+import { server_url } from '../information/backend_url'
 
 import {AiOutlinePlus} from 'react-icons/ai'
 import {AiOutlineMinus} from 'react-icons/ai'
@@ -119,7 +120,7 @@ const CartProductCard = ({product,type,changeQty,removeFromOrder}) => {
         <AlertBox content={'sorry only ' + product.stock + ' are available'} status="500" display={outOfStock} />
         <AlertBox content="Some error. Please try after some time" status="500" display={error} />
         <Card className="cartProductCard">
-            <Card.Img variant="top" src={"/images/products/"+product.img} />
+            <Card.Img variant="top" src={server_url+"/products/"+product.img} />
             <Card.Body>
                 <Card.Title>
                     <div className="font1 brand subHeading textColor">{product.brand}</div>

@@ -6,7 +6,6 @@ export const inTrendingAndSpecialOffersAction = ()=>{
             dispatch({
                 type:'inTrendingAndSpecialOffersRequest'
             })
-
             const res = await fetch(`${server_url}/api/inTrendingAndSpecialOffers`,{
                 method:"GET",
                 headers:{

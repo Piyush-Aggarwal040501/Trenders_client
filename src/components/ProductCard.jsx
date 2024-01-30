@@ -2,6 +2,7 @@ import React,{useState,useRef,useEffect} from 'react'
 import {Link,useNavigate} from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
 import  AlertBox from '../components/AlertBox'
+import { server_url } from '../information/backend_url';
 
 // importing css files 
 import { Card} from 'react-bootstrap';
@@ -114,7 +115,7 @@ const ProductCard = ({product,type,deleteProduct,orderedDate}) => {
                 </div>
             }
 
-            <Card.Img variant="top" src={"/images/products/"+product.img} />
+            <Card.Img variant="top" src={server_url+"/products/"+product.img} />
             <Card.Body>
                 <Card.Title>
                     <div className="font1 brand">{product.brand}</div>
